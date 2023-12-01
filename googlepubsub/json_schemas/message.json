@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "http://asyncapi.com/bindings/googlepubsub/message.json",
-  "title": "Cloud Pub/Sub Channel Schema",
+  "title": "Cloud Pub/Sub Message Schema",
   "description": "This object contains information about the message representation for Google Cloud Pub/Sub.",
   "type": "object",
   "additionalProperties": false,
