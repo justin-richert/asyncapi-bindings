@@ -157,14 +157,40 @@ components:
 # ...
 ```
 
-<a name="operation"></a>
-
-## Operation Binding Object
-
-This object MUST NOT contain any properties. Its name is reserved for future use.
-
 <a name="server"></a>
 
 ## Server Binding Object
+
+The `Server Binding Object` is used to describe details related to your different server environments. Currently this object only allows you to specify `projectId`. This is available in order to allow for the re-use of channel and message definitions across environments where `projectId` is the only differing element.
+
+Field Name | Type | Description
+---|---|---
+`projectId`|String|The project identifier in Google that your topics and schemas are created in. When this property is defined, topics and schemaSettings _MAY_ omit the prefix of `projects/{projectId}/topics` inside of [channels](#channel-binding-object), `projects/{projectId}/schemaSettings` for [schema settings](#schema-settings-object) and `projects/{projectId}/schemas` for [schemas](#schema-definition-object).
+
+<a name="server-binding-example"></a>
+
+### Example
+
+```yaml
+#...
+servers:
+  staging:
+    url: pubsub.googleapis.com
+    description: Staging Pub/Sub server definition
+    bindings:
+      googlepubsub:
+        projectId: my-staging-project-id
+  production:
+    url: pubsub.googleapis.com
+    description: Production Pub/Sub server definition
+    bindings:
+      googlepubsub:
+        projectId: my-production-project-id
+#...
+```
+
+<a name="operation"></a>
+
+## Operation Binding Object
 
 This object MUST NOT contain any properties. Its name is reserved for future use.
